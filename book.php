@@ -22,16 +22,17 @@ $stmt->execute(['id' => $id]);
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
+            background-color: black;
+            color: white;
             margin: 0;
             padding: 0;
         }
 
         .container {
             max-width: 600px;
-            margin: 0 auto;
+            margin: 50px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: #000;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -39,11 +40,25 @@ $stmt->execute(['id' => $id]);
 
         h1 {
             color: #007bff;
+            text-align: center;
         }
 
         span {
             display: block;
             margin-top: 10px;
+            text-align: center;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #0056b3;
         }
     </style>
 </head>
@@ -67,7 +82,6 @@ $stmt->execute(['id' => $id]);
 
     <a href="./edit.php?id=<?= $id; ?>">muuda</a>
 
-</html>
 </body>
 
 </html>
