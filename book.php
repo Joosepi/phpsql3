@@ -34,7 +34,7 @@ $stmt->execute(['id' => $id]);
             padding: 20px;
             background-color: #000;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 150px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -60,6 +60,8 @@ $stmt->execute(['id' => $id]);
         a:hover {
             color: #0056b3;
         }
+
+
     </style>
 </head>
 
@@ -68,7 +70,7 @@ $stmt->execute(['id' => $id]);
     <div class="container">
         <h1><?php echo $book['title']; ?></h1>
         <?php
-        echo '<span>Author(s): ';
+        echo '<span>Author: ';
         $authors = array(); 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $authors[] = $row['first_name'] . ' ' . $row['last_name'];
@@ -79,9 +81,8 @@ $stmt->execute(['id' => $id]);
         <span><?php echo 'Year: ' . $book['release_date']; ?></span>
     </div>
 
-
+    
     <a href="./edit.php?id=<?= $id; ?>">muuda</a>
-
 </body>
 
 </html>

@@ -1,9 +1,18 @@
 <?php
 require_once('connect.php');
 
-$stmt = $pdo->query('SELECT id, title FROM books');
-$stmt->setFetchMode(PDO::FETCH_ASSOC);
 $hello = "Books Category";
+
+
+if (isset($_GET['search'])) {
+    $search = $_GET['search'];
+    $stmt = $pdo->prepare('SELECT id, title FROM books WHERE title LIKE ?');
+    $stmt->execute(["%$search%"]);
+} else {
+    $stmt = $pdo->query('SELECT id, title FROM books');
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +85,12 @@ $hello = "Books Category";
     <div class="header">
         <h1>Books Category</h1>
     </div>
+
     <div class="container">
+        <form method="get">
+            <input type="text" name="search" placeholder="Search for a book" value="<?php echo isset($search) ? $search : ''; ?>">
+            <button type="submit">Search</button>
+        </form>
         <ul class="list">
             <?php
             while ($row = $stmt->fetch()) {

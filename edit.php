@@ -71,7 +71,7 @@ $book = $stmt->fetch();
     </style>
 </head>
 <body>
-    <h1>Change database</h1>
+    <h1>Edit book</h1>
 
     <form action="/edit.php?id=<?= $id; ?>" method="POST">
         <label for="title">Title:</label>
